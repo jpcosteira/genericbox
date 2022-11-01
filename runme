@@ -1,0 +1,1 @@
+docker run --rm -d --name sift -p 4061:8061 jpcosteira/aispsift
