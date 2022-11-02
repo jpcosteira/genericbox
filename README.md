@@ -1,4 +1,4 @@
-# sift
+# sift grpc enabled
 AI4EU (acumos) component to compute sift features of one image
 
 This component is a modification of the flexible opencv component (see https://github.com/DuarteMRAlves/opencv-grpc-service).
