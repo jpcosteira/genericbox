@@ -40,18 +40,8 @@ class ServiceImpl(image_generic_pb2_grpc.ImageGenericServiceServicer):
         features={'kp','desc'}
         """
         image = request.data
-        keypts, descs = self.__calling_fn(image)
-        ksize=keypts.shape
-        dsize=descs.shape 
-        logging.warning('dsize ', dsize, 'ksize ', ksize)
-        return image_generic_pb2.ImageAndFeatures(
-            img=image_generic_pb2.Image(data=image),
-            features=image_generic_pb2.NumpyMat(data=keypts.tobytes(),
-                                                numrows=ksize[0],
-                                                numcols=ksize[1]),
-            descriptors=image_generic_pb2.NumpyMat(data=descs.tobytes(),
-                                                    numrows=dsize[0],
-                                                    numcols=dsize[1]))
+        image_ret= self.__calling_fn(image)
+        return image_generic_pb2.ImageImage(data=image_ret)
     
 
 if __name__ == '__main__':

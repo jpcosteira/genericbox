@@ -7,6 +7,7 @@ ARG WORKSPACE=/workspace
 # The python file should have the name ${SERVICE_NAME}_service.py
 ARG SERVICE_NAME=image_generic
 
+
 # --------------------------------------
 # Builder stage to generate .proto files
 # --------------------------------------
@@ -23,7 +24,7 @@ RUN pip install --upgrade pip && \
     pip install grpcio==1.35.0 grpcio-tools==1.35.0 protobuf==3.14.0
 
 COPY ${PROTOS_FOLDER_DIR} ${WORKSPACE}/
-
+#COPY image_generic.proto ${WORKSPACE}/
 WORKDIR ${WORKSPACE}
 
 # Compile proto file and remove it

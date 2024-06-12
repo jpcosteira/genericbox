@@ -44,6 +44,7 @@ ARG USER=runner
 ARG GROUP=runner-group
 ARG SRC=src
 
+
 # Create non-privileged user and workspace
 RUN addgroup --system ${GROUP} && \
     adduser --system --no-create-home --ingroup ${GROUP} ${USER} && \
