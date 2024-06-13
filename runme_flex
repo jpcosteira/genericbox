@@ -1,3 +1,0 @@
-docker run --rm -d --name sift -p 4061:8061 -v /home/jpc/pipelines/sift/src/external.py:/workspace/external.py jpcosteira/aispsift
-# Flexible docker: mapping external.py from the host filesystem
-#docker run --rm -d --name sift -p 4061:8061 -v /home/jpc/pipelines/sift/src/external.py:/workspace/external.py jpcosteira/aispsift
