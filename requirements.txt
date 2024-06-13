@@ -1,6 +1,7 @@
-grpcio==1.35.0
-grpcio-reflection==1.35.0
-opencv-contrib-python-headless==4.5.1.48
-protobuf==3.14.0
+grpcio
+grpcio-reflection
+opencv-contrib-python-headless==4.6.0.66
+opencv-python==4.6.0.66
+protobuf
 numpy
 scipy

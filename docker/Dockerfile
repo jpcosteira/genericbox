@@ -12,8 +12,9 @@ ARG SERVICE_NAME=image_generic
 # Builder stage to generate .proto files
 # --------------------------------------
 
-FROM python:3.8.7-slim-buster as builder
-# Renew build args
+#FROM python:slim-buster as builder
+FROM python:latest as builder
+## Renew build args
 ARG WORKSPACE
 ARG SERVICE_NAME
 
@@ -21,7 +22,7 @@ ARG SERVICE_NAME
 ARG PROTOS_FOLDER_DIR=protos
 
 RUN pip install --upgrade pip && \
-    pip install grpcio==1.35.0 grpcio-tools==1.35.0 protobuf==3.14.0
+    pip install grpcio grpcio-tools protobuf
 
 COPY ${PROTOS_FOLDER_DIR} ${WORKSPACE}/
 #COPY image_generic.proto ${WORKSPACE}/
@@ -35,7 +36,7 @@ RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ${SERVICE
 # Stage to generate final image
 # -----------------------------
 
-FROM python:3.8.7-slim-buster
+FROM python:slim-buster
 # Renew build args
 ARG WORKSPACE
 ARG SERVICE_NAME

@@ -41,7 +41,7 @@ class ServiceImpl(image_generic_pb2_grpc.ImageGenericServiceServicer):
         """
         image = request.data
         image_ret= self.__calling_fn(image)
-        return image_generic_pb2.ImageImage(data=image_ret)
+        return image_generic_pb2.Image(data=image_ret)
     
 
 if __name__ == '__main__':
