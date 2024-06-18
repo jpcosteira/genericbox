@@ -70,7 +70,9 @@ COPY --from=builder --chown=${USER}:${GROUP} ${WORKSPACE}/*.py ${WORKSPACE}/
 # (rename service file to only service.py for generic usage)
 COPY --chown=${USER}:${GROUP} ${SRC}/utils.py ${WORKSPACE}/utils.py
 COPY --chown=${USER}:${GROUP} ${SRC}/${SERVICE_NAME}_service.py ${WORKSPACE}/service.py
-COPY --chown=${USER}:${GROUP} ${SRC}/external.py ${WORKSPACE}/external.py
+
+# For a specialized docker (no mount) uncomment the next line
+#COPY --chown=${USER}:${GROUP} ${SRC}/external.py ${WORKSPACE}/external.py
 
 # Change to non-privileged user
 USER ${USER}
