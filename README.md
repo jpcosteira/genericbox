@@ -27,18 +27,18 @@ Main steps:
 - Create output file ``` retfile=io.BytesIO()```
 - Save your results in a .mat file ```savemat(retfile,{"var1":var1,"var2":keypoints_array,...,"varn":varn})```
 - Return the bytes of the mat file: ```return retfile.getvalue()```
-
+f=io.BytesIO()
 **The easy way:** copy ```src/external1.py``` and edit between the two Comments # SPECIFIC CODE STARTS HERE and # SPECIFIC CODE ENDS HERE 
 
 ## Launching the service
-*Running standalone : 
- 1. assign a port number from the host that maps to port 8061 exposed by the docker container (mandatory for AI4EU pipelines).
- 2. Launch the component: 
+* **Standalone:** 
+  1. assign a port number from the host that maps to port 8061 exposed by the docker container (mandatory for AI4EU pipelines).
+  2. Launch the component: 
 ```shell
 $ docker run --rm -it -p 8061:8061 -v pathtoexternal/externalfile.py=/workspace/external.py jpcosteira/aispsift:<specific tag>-latest
 ```
-3. Use a grpc enabled code to test and/or interact with the service. See notebook ```test/test_image_generic.ipynb```
-*Running in a pipeline: Follow the configuration and deployment rules of ```maestro``` the pipeline orchestrator [maestro@github](https://github.com/jpcosteira/maestro)
+  3. Use a grpc enabled code to test and/or interact with the service. See notebook ```test/test_image_generic.ipynb```
+* **Running the service in a pipeline:** Follow the configuration and deployment rules of ```maestro``` the pipeline orchestrator [maestro@github](https://github.com/jpcosteira/maestro)
 
 ## Todo
 Change all names of files and variables from image_generic or Image to something more generic !
