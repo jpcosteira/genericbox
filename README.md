@@ -5,7 +5,7 @@ This component is a modification of the flexible opencv component (see https://g
 It accepts as input a **.mat** file and returs another **.mat** file both binary coded. 
 
 Data to the service is passed and returned through variables stored inside the .mat files (loaded and saved with **scipy.io.loadmat/savemat** )
-
+f=io.BytesIO()
 ## Creating a component
 Pull the docker image :
 ```shell
@@ -37,7 +37,7 @@ Main steps:
   1. assign a port number from the host that maps to port 8061 exposed by the docker container (mandatory for AI4EU pipelines).
   1. Launch the component: 
   1. ```shell
-     $ docker run --rm -it -p 8061:8061 -v pathtoexternal/externalfile.py=/workspace/external.py jpcosteira/aispsift:<specific tag>-latest```
+     $ docker run --rm -it -p 8061:8061 --name servicename -v pathtoexternal/externalfile.py=/workspace/external.py jpcosteira/genericbox:<specific tag>-latest```
  1. Use a grpc enabled code to test and/or interact with the service. See notebook ```test/test_image_generic.ipynb```
 
 * **Running the service in a pipeline:** Follow the configuration and deployment rules of ```maestro``` the pipeline orchestrator [maestro@github](https://github.com/jpcosteira/maestro)
