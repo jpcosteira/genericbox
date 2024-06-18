@@ -34,9 +34,7 @@ f=io.BytesIO()
 * **Standalone:** 
  1. assign a port number from the host that maps to port 8061 exposed by the docker container (mandatory for AI4EU pipelines).
  2. Launch the component: 
- 3. ```shell
-$ docker run --rm -it -p 8061:8061 -v pathtoexternal/externalfile.py=/workspace/external.py jpcosteira/aispsift:<specific tag>-latest
-```
+ 3. ```shell $ docker run --rm -it -p 8061:8061 -v pathtoexternal/externalfile.py=/workspace/external.py jpcosteira/aispsift:<specific tag>-latest```
  4. Use a grpc enabled code to test and/or interact with the service. See notebook ```test/test_image_generic.ipynb```
 * **Running the service in a pipeline:** Follow the configuration and deployment rules of ```maestro``` the pipeline orchestrator [maestro@github](https://github.com/jpcosteira/maestro)
 
