@@ -18,16 +18,16 @@ bash buildme
 ```
 ## Processing
 Edit a .py file (ex. externalfile.py) and insert the code you want to execute.
+
 Note:
 - ```import``` numpy, scipy, io and whatever other modules/libraries you need
-- There must be a function named as ```def calling_function(datafile):
-  mat_data=loadmat(io.BytesIO(datafile))```
-- Save your results in a .mat file and read it back in binary format
-- ``` retfile=io.BytesIO()
-    savemat(retfile,{"var1":var1,"var2":keypoints_array,...,"varn":varn})
-    return retfile.getvalue()```
+- There must be a function named as ```def calling_function(datafile):```
+- Load the .mat file ```mat_data=loadmat(io.BytesIO(datafile))``` and read the variables of interest from the dictionary ```mat_data```
+- Create the output file ``` retfile=io.BytesIO()```
+- Save your results in a .mat file ```savemat(retfile,{"var1":var1,"var2":keypoints_array,...,"varn":varn})```
+- Return the bytes of the mat file: ```return retfile.getvalue()```
 
-Easy way: copy ```src/external1.py``` and edit between the two Comments # SPECIFIC CODE STARTS HERE and # SPECIFIC CODE ENDS HERE 
+**The easy way:** copy ```src/external1.py``` and edit between the two Comments # SPECIFIC CODE STARTS HERE and # SPECIFIC CODE ENDS HERE 
 
 ## Launching the service
 *Running standalone : 
