@@ -11,8 +11,7 @@ from scipy.io import loadmat, savemat
 def calling_function(datafile):
     #Load the mat file using scipy.io.loadmat
     mat_data=loadmat(io.BytesIO(datafile))
-#    print(mat_data.keys())
-#    print(mat_data["im"].shape)
+# SPECIFIC CODE STARTS HERE
     im2=mat_data["im"]
     gray= cv2.cvtColor(im2,cv2.COLOR_BGR2GRAY)
     sift = cv2.SIFT_create()
@@ -34,6 +33,7 @@ def calling_function(datafile):
 
     # Convert to NumPy array
     keypoints_array = np.array(keypoints_data)
+# SPECIFIC CODE ENDS HERE
     f=io.BytesIO()
     savemat(f,{"im":im2,"kp":keypoints_array,"desc":descriptor})
     return f.getvalue()
