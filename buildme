@@ -1,2 +1,2 @@
-docker build -t jpcosteira/aispsift .
+docker build -t jpcosteira/genericbox .
 
